@@ -1,8 +1,15 @@
 //express is a dependency
 const express = require("express"); //import express module
-//const path = require("path")
+const path = require("path")
 //initialization
 const app = express(); //create an express app and assigned to app object
+
+//middleware to run static, it is a function which can change access to request and response
+app.use(express.static(path.join(__dirname,"public")))
+
+
+
+
 
 //4 types of request get , post,put and delete
 //route handler function for HTTP GET requests to the site root ('/').takes a request and a response object as arguments.
@@ -17,11 +24,17 @@ app.get(
 // app.get("/student", (req, res) => res.json({ data: "Hello world" })); //json format
  app.get("/jc", (req, res) => res.send("hello jc")); //if entered /jc
 
-// app.get("/student/:id",(req,res)=>{
-//   console.log(req.params);
-//   const id =req.params.id;
-//   res.send(`student id is ${id}`)
-// })
+/* app.get("/student/:id",(req,res)=>{
+  console.log(req.params);
+  const id =req.params.id;
+  res.send(`student id is ${id}`)
+}) */
+
+
+//to access 
+app.get("/jc/:name",(req,res)=>{
+  res.send("hello"+req.params.name)
+})
 
 var port = process.env.PORT || 9000
 //starts up the server on a specified port ('3000') and prints a log comment to the console.
