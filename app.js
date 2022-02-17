@@ -1,6 +1,6 @@
 //express is a dependency
 const express = require("express"); //import express module
-const path = require("path")
+//const path = require("path")
 //initialization
 const app = express(); //create an express app and assigned to app object
 
@@ -9,9 +9,9 @@ const app = express(); //create an express app and assigned to app object
  
 app.get(
   "/",
-  (req, res) => //res.send("Hello world") //sends response
+  (req, res) => res.send("Hello world") //sends response
   //if we have a complex file like html and css then we use
- res.sendFile(path.join(__dirname,'index.html')) //path of index.html
+ //res.sendFile(path.join(__dirname,'index.html')) //path of index.html
 ); 
 // app.get("/", (req, res) => res.json({ data: "Hello world" })); //json format
 // app.get("/student", (req, res) => res.json({ data: "Hello world" })); //json format
@@ -23,6 +23,6 @@ app.get(
 //   res.send(`student id is ${id}`)
 // })
 
-var port = process.env.PORT || 9000
+//var port = process.env.PORT || 9000
 //starts up the server on a specified port ('3000') and prints a log comment to the console.
-app.listen(port, (req, res) => console.log("running.."));
+app.listen(9000, (req, res) => console.log("running.."));
