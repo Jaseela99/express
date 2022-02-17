@@ -23,6 +23,6 @@ app.get(
 //   res.send(`student id is ${id}`)
 // })
 
-//var port = process.env.PORT || 9000
+var port = process.env.PORT || 9000
 //starts up the server on a specified port ('3000') and prints a log comment to the console.
-app.listen(9000, (req, res) => console.log("running.."));
+app.listen(port, (req, res) => console.log("running.."));
