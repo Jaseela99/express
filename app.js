@@ -57,3 +57,23 @@ app.use(express.static(path.join(__dirname,"public"))) //toset static folders
 const PORT =process.env.PORT ||9000; //to check there are other available ports
 
 app.listen(PORT,()=>console.log("server is running.."))
+
+//params
+app.get('/user/:id', function (req, res) {
+    res.send('user ' + req.params.id)
+  })
+
+
+//post
+app.use(express.json()) // for parsing application/json
+
+
+app.post('/profile', function (req, res, next) {
+  console.log(req.body)
+  res.json(req.body)
+})
+//put
+
+app.put('/', function (req, res) {
+    res.send('PUT request to homepage')
+  })
